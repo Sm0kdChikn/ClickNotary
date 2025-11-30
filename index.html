@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="ClickNotary – Fast, secure Remote Online Notarization (RON). Notarize documents online in minutes."/>
+  <meta name="description" content="ClickNotary – Fast, secure Remote Online Notarization (RON). Notarize documents online in minutes with advanced verification and e-signing tools."/>
   <title>ClickNotary – Remote Online Notary | Fast & Secure RON</title>
 
   <!-- Favicon – upload your logo as favicon.ico or logo.png later -->
@@ -174,6 +174,37 @@
       font-weight: bold;
     }
 
+    /* Pricing Section */
+    .pricing {
+      padding: 7rem 0;
+      background: #f8fbff;
+      text-align: center;
+    }
+    .pricing .grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .price-card {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,85,255,0.08);
+      transition: all 0.3s;
+    }
+    .price-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,85,255,0.15);
+    }
+    .price-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .price-amount {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
     /* Final CTA */
     .final-cta {
       background: linear-gradient(135deg, var(--blue), var(--blue-dark));
@@ -222,7 +253,7 @@
           <a href="#security">Security</a>
           <a href="mailto:hello@clicknotary.com">Contact</a>
         </div>
-        <a href="#book" class="cta-button">Book Now</a>
+        <a href="#book" class="cta-button">Start Notarization</a>
       </nav>
     </div>
   </header>
@@ -230,7 +261,7 @@
   <section class="hero">
     <div class="container">
       <h1>Get Notarized Online in Minutes</h1>
-      <p>Secure, legal Remote Online Notarization available 24/7.<br>No travel. No waiting. Just click and sign.</p>
+      <p>Secure, legal Remote Online Notarization available 24/7 from any device. No travel. No waiting. Just upload, verify, and sign with our on-demand tools.</p>
       <div class="buttons" style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
         <a href="#book" class="btn-primary">Start Notarization Now</a>
         <a href="#how" class="btn-primary btn-secondary">How It Works</a>
@@ -243,19 +274,19 @@
       <h2 class="section-title">Why Thousands Choose ClickNotary</h2>
       <div class="grid">
         <div class="card">
-          <div class="icon">Fast</div>
-          <h3>Instant Connection</h3>
-          <p>Connect with a licensed notary in under 60 seconds – anytime.</p>
+          <div class="icon">⚡</div>
+          <h3>Instant On-Demand Access</h3>
+          <p>Connect with a certified notary in under 60 seconds – 24/7, no scheduling required.</p>
         </div>
         <div class="card">
-          <div class="icon">Secure</div>
-          <h3>Bank-Grade Security</h3>
-          <p>256-bit encryption + KBA identity verification on every session.</p>
+          <div class="icon">🔒</div>
+          <h3>Advanced Fraud Prevention</h3>
+          <p>Cutting-edge ID checks and verification tools integrated for secure, fraud-resistant sessions.</p>
         </div>
         <div class="card">
-          <div class="icon">Legal</div>
+          <div class="icon">⚖️</div>
           <h3>100% Legal & Compliant</h3>
-          <p>Accepted nationwide where RON is authorized.</p>
+          <p>Fully compliant with RON standards, ensuring legally binding notarizations nationwide where authorized.</p>
         </div>
       </div>
     </div>
@@ -265,11 +296,49 @@
     <div class="container">
       <h2 class="section-title">How It Works – 4 Simple Steps</h2>
       <div class="steps" style="counter-reset:step;">
-        <div class="step"><h3>Upload Document</h3><p>Securely upload your unsigned PDF.</p></div>
-        <div class="step"><h3>Verify Identity</h3><p>Quick knowledge-based authentication.</p></div>
-        <div class="step"><h3>Meet Notary Live</h3><p>Video call with a licensed notary public.</p></div>
-        <div class="step"><h3>Sign & Download</h3><p>Electronically sign and get your notarized file instantly.</p></div>
+        <div class="step">
+          <h3>Upload Document</h3>
+          <p>Securely upload your unsigned PDF or supported document to our platform.</p>
+        </div>
+        <div class="step">
+          <h3>Verify Identity</h3>
+          <p>Complete secure ID checks with integrated verification processes for quick authentication.</p>
+        </div>
+        <div class="step">
+          <h3>Meet Notary Live</h3>
+          <p>Instant video connection with a certified notary to review and prepare your documents.</p>
+        </div>
+        <div class="step">
+          <h3>Sign & Download</h3>
+          <p>Electronically sign and notarize digitally, then download your completed file instantly.</p>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <div class="grid">
+        <div class="price-card">
+          <h3>Single Document Notarization</h3>
+          <div class="price-amount">$25</div>
+          <p>One certificate/seal. Includes full verification, video session, and digital delivery.</p>
+        </div>
+        <div class="price-card">
+          <h3>Additional Seals</h3>
+          <div class="price-amount">$8 each</div>
+          <p>Add extra notarizations to the same document or session.</p>
+        </div>
+        <div class="price-card">
+          <h3>eClosing / Bulk</h3>
+          <div class="price-amount">Custom</div>
+          <p>For real estate or high-volume: Save $450+ per transaction with automated workflows.</p>
+        </div>
+      </div>
+      <p style="max-width:800px;margin:3rem auto 0;font-size:1.1rem;color:var(--gray);">
+        Flat fees – no hidden charges. Supports common document templates for faster processing.
+      </p>
     </div>
   </section>
 
@@ -277,20 +346,20 @@
     <div class="container">
       <h2 class="section-title">Security & Compliance First</h2>
       <p style="max-width:800px;margin:0 auto 3rem;font-size:1.1rem;color:var(--gray);">
-        We use enterprise-grade encryption and follow strict state & federal RON laws.
+        Enterprise-grade tools with cutting-edge fraud prevention, secure digital workflows, and compliance with state & federal RON laws. Every session includes verified transactions and legally binding records.
       </p>
       <div style="display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;">
         <div style="text-align:center;">
           <i class="fas fa-shield-alt" style="font-size:4rem;color:var(--blue);margin-bottom:1rem;"></i>
-          <p><strong>SOC 2 Type II</strong><br>Certified</p>
+          <p><strong>Fraud Prevention</strong><br>Integrated Tech</p>
         </div>
         <div style="text-align:center;">
           <i class="fas fa-lock" style="font-size:4rem;color:var(--blue);margin-bottom:1rem;"></i>
-          <p><strong>256-bit AES</strong><br>Encryption</p>
+          <p><strong>Secure Digital</strong><br>Signing & Records</p>
         </div>
         <div style="text-align:center;">
           <i class="fas fa-gavel" style="font-size:4rem;color:var(--blue);margin-bottom:1rem;"></i>
-          <p><strong>ESIGN & UETA</strong><br>Compliant</p>
+          <p><strong>RON Compliant</strong><br>Nationwide</p>
         </div>
       </div>
     </div>
@@ -299,10 +368,10 @@
   <section class="final-cta" id="book">
     <div class="container">
       <h2>Ready to Notarize?</h2>
-      <p style="font-size:1.4rem;margin:1.5rem 0 2.5rem;">Start your secure online notarization session in under a minute.</p>
-      <a href="mailto:hello@clicknotary.com?subject=I want to book a RON session&body=Hi, I'd like to schedule an online notarization." 
+      <p style="font-size:1.4rem;margin:1.5rem 0 2.5rem;">Start your secure online session now – available 24/7 from phone, tablet, or laptop.</p>
+      <a href="mailto:hello@clicknotary.com?subject=Start RON Session&body=Hi, I'd like to notarize a document online." 
          class="btn-primary" style="font-size:1.3rem;padding:1.3rem 3.5rem;">
-        Book Your Session Now
+        Start Notarization Now
       </a>
     </div>
   </section>
@@ -310,7 +379,7 @@
   <footer>
     <div class="container">
       <p style="margin-bottom:1rem;font-size:1.1rem;">
-        <strong><span style="color:var(--cyan);">click</span><span style="color:white;">Notary</span></strong> – Remote Online Notary Services
+        <strong><span style="color:var(--cyan);">click</span><span style="color:var(--blue);">Notary</span></strong> – Secure Remote Online Notary Services
       </p>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
