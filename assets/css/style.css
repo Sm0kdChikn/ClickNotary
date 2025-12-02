@@ -1,92 +1,95 @@
 :root {
-  --blue: #0055ff;
-  --blue-dark: #0044cc;
-  --cyan: #00ccff;
-  --dark: #1e293b;
-  --gray: #64748b;
-  --light: #f8fbff;
-  --white: #ffffff;
+  /* Fresh, calm, premium palette – zero harsh blues (used at rest) */
+  --sage:         #2d6a4f;   /* main brand color */
+  --sage-light:   #95b9a3;   /* soft accent green */
+  --cream:        #fafaf7;   /* page background */
+  --sand:         #f2e8d8;   /* section backgrounds */
+  --ink:          #1f2937;   /* headings & body text */
+  --stone:        #6b7280;   /* secondary text */
+  --white:        #ffffff;
+  --gold-soft:    #d4a017;   /* optional luxury accent */
+
+  /* Your original electric blue – used ONLY on hover (exactly like before) */
+  --hover-blue:       #0055ff;
+  --hover-blue-dark:  #0044cc;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
+
 body {
   font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  color: var(--dark);
-  background: var(--white);
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--cream);
 }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
 /* Header */
 header {
-  background: white;
-  box-shadow: 0 4px 20px rgba(0,85,255,0.08);
+  background: var(--white);
+  box-shadow: 0 4px 25px rgba(45,106,79,0.08);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
 }
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 0;
+
+.clicknotary-text {
+    font-family: "Montserrat", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* the real logo uses Montserrat */
+    font-weight: 600;              /* semi-bold, exactly matches the logo */
+    font-size: 36px;               /* adjust to your needs */
+    letter-spacing: -0.5px;        /* slightly tighter spacing like the logo */
+    text-transform: lowercase;    /* forces all lowercase */
+    white-space: nowrap;
 }
-.logo-img {
-  height: 48px;
+
+.clicknotary-text .click {
+    color: #0066ff;                /* exact bright blue from the logo */
 }
+
+.clicknotary-text .notary {
+    color: #000000;                /* pure black */
+}
+
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; }
+.logo-img { height: 48px; }
 .nav-links a {
-  text-decoration: none;
-  color: var(--dark);
+  color: var(--ink);
   font-weight: 500;
   margin-left: 2rem;
+  text-decoration: none;
   transition: color 0.3s;
 }
-.nav-links a:hover { color: var(--blue); }
+.nav-links a:hover { color: var(--hover-blue); }
+
 .cta-button {
-  background: var(--blue);
+  background: var(--sage);
   color: white;
   padding: 0.75rem 1.8rem;
   border-radius: 0.5rem;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
   transition: all 0.3s;
 }
 .cta-button:hover {
-  background: var(--blue-dark);
+  background: var(--hover-blue-dark);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,85,255,0.25);
 }
 
 /* Hero */
 .hero {
   padding: 10rem 0 7rem;
   text-align: center;
-  background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
+  background: linear-gradient(to bottom, var(--sand), var(--cream));
 }
-.hero-logo {
-  height: 110px;
-  margin-bottom: 1.5rem;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.8rem;
-  margin-bottom: 1rem;
-  color: var(--dark);
-}
-.hero p {
-  font-size: 1.3rem;
-  color: var(--gray);
-  max-width: 720px;
-  margin: 0 auto 2.5rem;
-}
-.buttons {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; color: var(--ink); margin-bottom: 1rem; }
+.hero p { font-size: 1.3rem; color: var(--stone); max-width: 720px; margin: 0 auto 2.5rem; }
+.hero-logo { height: 110px; margin-bottom: 1.5rem; }
+
+/* Buttons – calm sage normally, original blue energy on hover */
 .btn-primary {
-  background: var(--blue);
+  background: var(--sage);
   color: white;
   padding: 1.1rem 2.4rem;
   border-radius: 0.5rem;
@@ -95,62 +98,74 @@ nav {
   transition: all 0.3s;
 }
 .btn-primary:hover {
-  background: var(--blue-dark);
+  background: var(--hover-blue-dark);
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0,85,255,0.25);
 }
 .btn-secondary {
   background: transparent;
-  color: var(--blue);
-  border: 2px solid var(--blue);
+  color: var(--sage);
+  border: 2px solid var(--sage);
 }
 .btn-secondary:hover {
-  background: var(--blue);
+  background: var(--hover-blue);
   color: white;
+  border-color: var(--hover-blue);
 }
 .large { font-size: 1.3rem; padding: 1.4rem 3.5rem !important; }
 
-/* General Sections */
+/* Sections */
 .section-title {
-  text-align: center;
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
+  text-align: center;
   margin-bottom: 3.5rem;
-  color: var(--dark);
+  color: var(--ink);
 }
 .features, .how-it-works, .pricing, .compliance { padding: 7rem 0; }
-.features { background: white; }
-.how-it-works { background: #f8fbff; }
-.pricing { background: var(--light); }
-.compliance { background: white; }
+.features { background: var(--white); }
+.how-it-works { background: var(--sand); }
+.pricing { background: var(--cream); }
+.compliance { background: var(--white); }
 
-.grid, .steps, .badges {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
+.grid, .steps, .badges { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+
 .card, .step, .price-card {
-  background: white;
+  background: var(--white);
   padding: 2.5rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0,85,255,0.08);
+  box-shadow: 0 10px 30px rgba(45,106,79,0.08);
   text-align: center;
+  border: 3px solid transparent;
   transition: all 0.3s;
 }
+/* Exact original hover behavior restored */
 .card:hover, .step:hover, .price-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0,85,255,0.15);
-  border: 3px solid var(--blue);
+  border: 3px solid var(--hover-blue);
 }
-.icon { font-size: 3.8rem; margin-bottom: 1rem; }
-.step::before {
+.price-amount { font-size: 2.8rem; font-weight: 700; color: var(--sage); }
+
+/* === HOW IT WORKS – Numbered Circles (visible + perfect hover) === */
+.steps {
+  counter-reset: step;                  /* starts the numbering */
+  position: relative;
+}
+
+.step {
+  position: relative;
   counter-increment: step;
+}
+
+/* The numbered circle – always visible */
+.step::before {
   content: counter(step);
   position: absolute;
   top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--blue);
+  background: var(--sage);             /* calm sage when resting */
   color: white;
   width: 56px;
   height: 56px;
@@ -160,13 +175,20 @@ nav {
   justify-content: center;
   font-size: 1.8rem;
   font-weight: bold;
+  z-index: 10;
+  transition: all 0.3s ease;
 }
-.price-amount { font-size: 2.8rem; font-weight: 700; color: var(--blue); margin: 1rem 0; }
-.featured { border: 3px solid var(--blue); }
 
-/* Final CTA & Footer */
+/* On hover → flashes your original electric blue (exactly like cards) */
+.step:hover::before {
+  background: var(--hover-blue);       /* #0055ff */
+  box-shadow: 0 8px 20px rgba(0,85,255,0.3);
+}
+
+/* Final CTA – calm sage, electric on hover */
+
 .final-cta {
-  background: linear-gradient(135deg, #0066ff, #0044cc); /* or use your --blue vars */
+  background: linear-gradient(135deg, var(--sage), #1f4e3a); /* or use your --blue vars */
   color: white;
   text-align: center;
   padding: 8rem 0;
@@ -188,19 +210,17 @@ nav {
   padding: 1rem 2.5rem;
   font-size: 1.3rem;
 }
+
+/* Footer */
 footer {
-  background: var(--dark);
+  background: var(--ink);
   color: #cbd5e1;
   padding: 4rem 0 2rem;
   text-align: center;
 }
-.footer-logo { height: 60px; filter: brightness(0) invert(1); margin-bottom: 1rem; }
-.footer-links a { color: #cbd5e1; margin: 0 1rem; text-decoration: none; }
-.footer-links a:hover { color: var(--cyan); }
-.copyright { font-size: 0.9rem; margin-top: 2rem; color: #94a3b8; }
+.footer-links a:hover { color: var(--sage-light); }
 
 @media (max-width: 768px) {
-  .nav-links { display: none; }
   .hero h1 { font-size: 2.9rem; }
   .hero-logo { height: 90px; }
 }
