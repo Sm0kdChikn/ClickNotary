@@ -6,247 +6,27 @@
   <meta name="description" content="ClickNotary – Fast, secure Remote Online Notarization (RON). Notarize documents online in minutes with advanced verification and e-signing tools."/>
   <title>ClickNotary – Remote Online Notary | Fast & Secure RON</title>
 
-  <!-- Favicon – upload your logo as favicon.ico or logo.png later -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍</text></svg>">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/cn_mouse.jpeg" type="image/jpeg" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --blue: #0055ff;        /* Exact logo blue */
-      --blue-dark: #0044cc;   /* Hover / darker states */
-      --cyan: #00ccff;        /* "click" part of your logo */
-      --dark: #1e293b;
-      --gray: #64748b;
-      --light: #f8fafc;
-      --white: #ffffff;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      background: var(--white);
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-
-    /* Header */
-    header {
-      background: white;
-      box-shadow: 0 4px 20px rgba(0,85,255,0.08);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 0;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.1rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .logo .click { color: var(--cyan); }
-    .logo .notary { color: var(--blue); }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      margin-left: 2rem;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover { color: var(--blue); }
-    .cta-button {
-      background: var(--blue);
-      color: white;
-      padding: 0.75rem 1.8rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    .cta-button:hover {
-      background: var(--blue-dark);
-      transform: translateY(-2px);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 10rem 0 7rem;
-      text-align: center;
-      background: linear-gradient(135deg, #f8fbff 0%, #f0f7ff 100%);
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.8rem;
-      margin-bottom: 1.2rem;
-      color: var(--dark);
-    }
-    .hero p {
-      font-size: 1.3rem;
-      color: var(--gray);
-      max-width: 720px;
-      margin: 0 auto 2.5rem;
-    }
-    .btn-primary {
-      background: var(--blue);
-      color: white;
-      padding: 1.1rem 2.4rem;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s;
-    }
-    .btn-primary:hover {
-      background: var(--blue-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,85,255,0.25);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--blue);
-      border: 2px solid var(--blue);
-    }
-    .btn-secondary:hover {
-      background: var(--blue);
-      color: white;
-    }
-
-    /* Sections */
-    .section-title {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      margin-bottom: 3.5rem;
-      color: var(--dark);
-    }
-    .features, .how-it-works, .compliance {
-      padding: 7rem 0;
-    }
-    .features { background: white; }
-    .how-it-works { background: #f8fbff; }
-    .compliance { background: white; }
-
-    .grid, .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .card, .step {
-      background: white;
-      padding: 2.5rem 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0,85,255,0.08);
-      text-align: center;
-      transition: all 0.3s;
-    }
-    .card:hover, .step:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,85,255,0.15);
-    }
-    .icon { font-size: 3.8rem; margin-bottom: 1rem; }
-    .step { position: relative; }
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--blue);
-      color: white;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-
-    /* Pricing Section */
-    .pricing {
-      padding: 7rem 0;
-      background: #f8fbff;
-      text-align: center;
-    }
-    .pricing .grid {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    .price-card {
-      background: white;
-      padding: 3rem 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0,85,255,0.08);
-      transition: all 0.3s;
-    }
-    .price-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,85,255,0.15);
-    }
-    .price-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .price-amount {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 1rem;
-    }
-
-    /* Final CTA */
-    .final-cta {
-      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-      color: white;
-      text-align: center;
-      padding: 8rem 0;
-    }
-    .final-cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
-      margin-bottom: 1rem;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--dark);
-      color: #cbd5e1;
-      padding: 4rem 0 2rem;
-      text-align: center;
-    }
-    .footer-links a {
-      color: #cbd5e1;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
-    .footer-links a:hover { color: var(--cyan); }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero h1 { font-size: 2.9rem; }
-      .hero .buttons { flex-direction: column; align-items: center; }
-      .btn-primary, .btn-secondary { width: 90%; max-width: 320px; }
-    }
-  </style>
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <div class="container">
       <nav>
-        <a href="#" class="logo"><span class="click">click</span><span class="notary">Notary</span></a>
+        <a href="#" class="logo">
+          <img src="assets/img/cn_mouse-removebg-preview.png" alt="ClickNotary Logo" class="logo-img" style="width: 75px; height: auto;">
+        </a>
         <div class="nav-links">
           <a href="#how">How It Works</a>
           <a href="#pricing">Pricing</a>
@@ -258,139 +38,119 @@
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
+      <img src="assets/img/cn_mouse-removebg-preview.png" style="width: 200px; height: auto;" alt="ClickNotary" class="hero-logo">
       <h1>Get Notarized Online in Minutes</h1>
-      <p>Secure, legal Remote Online Notarization available 24/7 from any device. No travel. No waiting. Just upload, verify, and sign with our on-demand tools.</p>
-      <div class="buttons" style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+      <p>Secure, legal Remote Online Notarization available 24/7 from any device. No travel. No waiting.</p>
+      <div class="buttons">
         <a href="#book" class="btn-primary">Start Notarization Now</a>
         <a href="#how" class="btn-primary btn-secondary">How It Works</a>
       </div>
     </div>
   </section>
 
+  <!-- Features -->
   <section class="features">
     <div class="container">
       <h2 class="section-title">Why Thousands Choose ClickNotary</h2>
       <div class="grid">
         <div class="card">
-          <div class="icon">⚡</div>
+          <div class="icon">Instant</div>
           <h3>Instant On-Demand Access</h3>
           <p>Connect with a certified notary in under 60 seconds – 24/7, no scheduling required.</p>
         </div>
         <div class="card">
-          <div class="icon">🔒</div>
+          <div class="icon">Secure</div>
           <h3>Advanced Fraud Prevention</h3>
-          <p>Cutting-edge ID checks and verification tools integrated for secure, fraud-resistant sessions.</p>
+          <p>Cutting-edge ID checks and verification tools integrated for secure sessions.</p>
         </div>
         <div class="card">
-          <div class="icon">⚖️</div>
+          <div class="icon">Legal</div>
           <h3>100% Legal & Compliant</h3>
-          <p>Fully compliant with RON standards, ensuring legally binding notarizations nationwide where authorized.</p>
+          <p>Fully compliant with RON standards nationwide where authorized.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- How It Works -->
   <section class="how-it-works" id="how">
     <div class="container">
       <h2 class="section-title">How It Works – 4 Simple Steps</h2>
       <div class="steps" style="counter-reset:step;">
-        <div class="step">
-          <h3>Upload Document</h3>
-          <p>Securely upload your unsigned PDF or supported document to our platform.</p>
-        </div>
-        <div class="step">
-          <h3>Verify Identity</h3>
-          <p>Complete secure ID checks with integrated verification processes for quick authentication.</p>
-        </div>
-        <div class="step">
-          <h3>Meet Notary Live</h3>
-          <p>Instant video connection with a certified notary to review and prepare your documents.</p>
-        </div>
-        <div class="step">
-          <h3>Sign & Download</h3>
-          <p>Electronically sign and notarize digitally, then download your completed file instantly.</p>
-        </div>
+        <div class="step"><h3>Upload Document</h3><p>Securely upload your PDF</p></div>
+        <div class="step"><h3>Verify Identity</h3><p>Quick & secure ID check</p></div>
+        <div class="step"><h3>Meet Notary Live</h3><p>Video session with licensed notary</p></div>
+        <div class="step"><h3>Sign & Download</h3><p>Get your notarized file instantly</p></div>
       </div>
     </div>
   </section>
 
+  <!-- Pricing -->
   <section class="pricing" id="pricing">
     <div class="container">
       <h2 class="section-title">Simple, Transparent Pricing</h2>
       <div class="grid">
         <div class="price-card">
-          <h3>Single Document Notarization</h3>
+          <h3>Single Document</h3>
           <div class="price-amount">$25</div>
-          <p>One certificate/seal. Includes full verification, video session, and digital delivery.</p>
+          <p>One notarization + seal</p>
         </div>
         <div class="price-card">
           <h3>Additional Seals</h3>
           <div class="price-amount">$8 each</div>
-          <p>Add extra notarizations to the same document or session.</p>
+          <p>Same session, extra stamps</p>
         </div>
-        <div class="price-card">
-          <h3>eClosing / Bulk</h3>
+        <div class="price-card featured">
+          <h3>Bulk / eClosing</h3>
           <div class="price-amount">Custom</div>
-          <p>For real estate or high-volume: Save $450+ per transaction with automated workflows.</p>
+          <p>Real estate & enterprise plans</p>
         </div>
       </div>
-      <p style="max-width:800px;margin:3rem auto 0;font-size:1.1rem;color:var(--gray);">
-        Flat fees – no hidden charges. Supports common document templates for faster processing.
-      </p>
     </div>
   </section>
 
+  <!-- Security -->
   <section class="compliance" id="security">
     <div class="container">
       <h2 class="section-title">Security & Compliance First</h2>
-      <p style="max-width:800px;margin:0 auto 3rem;font-size:1.1rem;color:var(--gray);">
-        Enterprise-grade tools with cutting-edge fraud prevention, secure digital workflows, and compliance with state & federal RON laws. Every session includes verified transactions and legally binding records.
-      </p>
-      <div style="display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;">
-        <div style="text-align:center;">
-          <i class="fas fa-shield-alt" style="font-size:4rem;color:var(--blue);margin-bottom:1rem;"></i>
-          <p><strong>Fraud Prevention</strong><br>Integrated Tech</p>
-        </div>
-        <div style="text-align:center;">
-          <i class="fas fa-lock" style="font-size:4rem;color:var(--blue);margin-bottom:1rem;"></i>
-          <p><strong>Secure Digital</strong><br>Signing & Records</p>
-        </div>
-        <div style="text-align:center;">
-          <i class="fas fa-gavel" style="font-size:4rem;color:var(--blue);margin-bottom:1rem;"></i>
-          <p><strong>RON Compliant</strong><br>Nationwide</p>
-        </div>
+      <p class="subtitle">Enterprise-grade protection with full legal compliance</p>
+      <div class="badges">
+        <div><i class="fas fa-shield-alt"></i><strong>Fraud Prevention</strong><br>Multi-layer ID verification</div>
+        <div><i class="fas fa-lock"></i><strong>256-bit Encryption</strong><br>Bank-level security</div>
+        <div><i class="fas fa-gavel"></i><strong>RON Compliant</strong><br>Valid nationwide</div>
       </div>
     </div>
   </section>
 
+  <!-- Final CTA -->
   <section class="final-cta" id="book">
     <div class="container">
-      <h2>Ready to Notarize?</h2>
-      <p style="font-size:1.4rem;margin:1.5rem 0 2.5rem;">Start your secure online session now – available 24/7 from phone, tablet, or laptop.</p>
-      <a href="mailto:hello@clicknotary.com?subject=Start RON Session&body=Hi, I'd like to notarize a document online." 
-         class="btn-primary" style="font-size:1.3rem;padding:1.3rem 3.5rem;">
+      <h2>Ready to Get Started?</h2>
+      <p>Start your secure online notarization in under a minute.</p>
+      <a href="mailto:hello@clicknotary.com?subject=Start RON Session" class="btn-primary large">
         Start Notarization Now
       </a>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <p style="margin-bottom:1rem;font-size:1.1rem;">
-        <strong><span style="color:var(--cyan);">click</span><span style="color:var(--blue);">Notary</span></strong> – Secure Remote Online Notary Services
-      </p>
+      <img src="assets/img/logo.png" alt="ClickNotary" class="footer-logo">
+      <p><strong>ClickNotary</strong> – America's Fastest Remote Online Notary</p>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
-        <a href="#">Support</a>
+        <a href="mailto:support@clicknotary.com">Support</a>
       </div>
-      <p style="margin-top:2rem;font-size:0.9rem;">
-        © 2025 ClickNotary. All rights reserved.
-      </p>
+      <p class="copyright">© 2025 ClickNotary. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- Custom JS (optional animations later) -->
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
