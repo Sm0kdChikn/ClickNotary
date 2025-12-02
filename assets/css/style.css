@@ -140,6 +140,7 @@ nav {
 .card:hover, .step:hover, .price-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0,85,255,0.15);
+  border: 3px solid var(--blue);
 }
 .icon { font-size: 3.8rem; margin-bottom: 1rem; }
 .step::before {
@@ -165,14 +166,27 @@ nav {
 
 /* Final CTA & Footer */
 .final-cta {
-  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  background: linear-gradient(135deg, #0066ff, #0044cc); /* or use your --blue vars */
   color: white;
   text-align: center;
   padding: 8rem 0;
 }
+
 .final-cta h2 {
   font-family: 'Playfair Display', serif;
   font-size: 3.2rem;
+  margin: 0 0 1rem 0;           /* prevents overlap with the <p> */
+}
+
+.final-cta p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;        /* gives breathing room before the button */
+  opacity: 0.95;
+}
+
+.final-cta .btn-primary.large {
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
 }
 footer {
   background: var(--dark);
