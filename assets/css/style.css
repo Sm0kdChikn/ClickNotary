@@ -41,6 +41,10 @@ header {
     letter-spacing: -0.5px;        /* slightly tighter spacing like the logo */
     text-transform: lowercase;    /* forces all lowercase */
     white-space: nowrap;
+    /* Moves it 1 inch to the left */
+    margin-left: -150px;        /* negative margin = move left */
+    position: relative;        /* ensures it doesn’t break layout */
+    left: 0;                   /* optional – keeps it predictable */
 }
 
 .clicknotary-text .click {
