@@ -64,7 +64,33 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   text-decoration: none;
   transition: color 0.3s;
 }
-.nav-links a:hover { color: var(--hover-blue); }
+
+.nav-links a {
+  position: relative;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--hover-blue);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;                    /* thickness of the line */
+  bottom: -4px;                   /* distance below text */
+  left: 50%;                      /* start exactly in the center */
+  transform: translateX(-50%);    /* perfect centering */
+  background-color: var(--hover-blue);
+  transition: width 0.38s cubic-bezier(0.4, 0, 0.2, 1);  /* buttery smooth */
+}
+
+.nav-links a:hover::after {
+  width: 100%;                    /* expands outward in both directions */
+}
 
 .cta-button {
   background: var(--sage);
