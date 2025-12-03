@@ -160,6 +160,18 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 
 .grid, .steps, .badges { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
 
+.subtitle {
+    text-align: center;
+    width: 100%;
+    max-width: 900px;           /* gives it a little more breathing room */
+    margin: 2rem auto;          /* more vertical space */
+    padding: 0 1rem;
+    font-size: 1.35rem;         /* clearly larger – feels premium */
+    line-height: 1.65;
+    font-weight: 500;           /* slightly bolder without screaming */
+    color: #333;                /* darker for better contrast */
+}
+
 .card, .step, .price-card {
   background: var(--white);
   padding: 2.5rem 2rem;
