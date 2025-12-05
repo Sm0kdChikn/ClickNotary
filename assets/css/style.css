@@ -44,6 +44,7 @@ header {
     letter-spacing: -0.5px;
     text-transform: lowercase;
     white-space: nowrap;
+    /* The desktop style uses a negative margin, this is fixed for mobile below */
     margin-left: -150px;
     position: relative;
     left: 0;
@@ -102,7 +103,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   border-radius: 0.5rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease-out, transform 0.2s ease-out; /* Ensure transform transition is clean */
+  transition: all 0.3s ease-out, transform 0.2s ease-out;
 }
 .cta-button:hover {
   background: var(--button-hover);
@@ -184,7 +185,6 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   box-shadow: 0 10px 30px var(--card-shadow);
   text-align: center;
   border: 3px solid transparent;
-  /* Updated transition for growing effect */
   transition: all 0.3s ease-out;
 }
 /* Cards grow slightly on hover */
@@ -259,15 +259,14 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   background: var(--cta-btn-bg); /* Standout Green */
   padding: 1rem 2.5rem;
   font-size: 1.3rem;
-  /* Reset general btn-primary styles to apply specific ones below */
-  transform: none !important;
-  box-shadow: none !important;
+  transform: none;
+  box-shadow: none;
 }
 
 .final-cta .btn-primary.large:hover {
     background: var(--cta-btn-hover); /* Darker Green hover */
-    transform: scale(0.98) !important; /* Keep button shrink effect */
-    box-shadow: 0 6px 20px var(--cta-btn-shadow) !important; /* Green shadow */
+    transform: scale(0.98); /* Keep button shrink effect */
+    box-shadow: 0 6px 20px var(--cta-btn-shadow); /* Green shadow */
 }
 
 
@@ -283,7 +282,47 @@ footer {
 
 .footer-links a:hover { color: var(--white-hover); }
 
+/* --- Mobile Responsiveness Adjustments (max-width: 768px) --- */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 2.9rem; }
-  .hero-logo { height: 90px; }
+  /* Adjustments to remove problematic desktop assumptions */
+  .hero h1 { font-size: 2.5rem; }
+  .hero-logo { height: 75px; }
+
+  /* Fix the logo positioning on mobile */
+  .clicknotary-text {
+      margin-left: 0;
+      font-size: 28px; /* Slightly smaller font for mobile header */
+  }
+
+  /* Adjust navigation behavior to stack elements vertically */
+  nav {
+    flex-direction: column; /* Stacks logo/nav links vertically */
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column; /* Stacks links vertically */
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    padding: 0.2rem 0;
+  }
+  
+  /* Make the header button take full width on mobile to look better */
+  .cta-button {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Disable hover effects for mobile to prevent odd scaling on touch */
+  .btn:hover, .btn-primary:hover, .btn-secondary:hover, .card:hover, .step:hover, .price-card:hover, .final-cta .btn-primary.large:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
 }
