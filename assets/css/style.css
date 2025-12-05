@@ -1,17 +1,20 @@
 :root {
-  /* Fresh, calm, premium palette – zero harsh blues (used at rest) */
-  --sage:         #2d6a4f;   /* main brand color */
-  --sage-light:   #95b9a3;   /* soft accent green */
-  --cream:        #fafaf7;   /* page background */
-  --sand:         #f2e8d8;   /* section backgrounds */
-  --ink:          #1f2937;   /* headings & body text */
-  --stone:        #6b7280;   /* secondary text */
-  --white:        #ffffff;
-  --gold-soft:    #d4a017;   /* optional luxury accent */
-
-  /* Your original electric blue – used ONLY on hover (exactly like before) */
-  --hover-blue:       #0055ff;
-  --hover-blue-dark:  #0044cc;
+  /* Software Blue Palette (More Professional) */
+  --soft-blue:        #3b82f6;   /* Main brand color (A calm, professional blue) */
+  --deep-slate:       #1e293b;   /* Headings & deep text */
+  --button-hover:     #2563eb;   /* Button hover state (slightly darker blue) */
+  --page-bg:          #eff6ff;   /* Page background (light blue tint) */
+  --section-bg:       #dbeafe;   /* Section background (stronger blue tint) */
+  --dark-bg:          #0f172a;   /* Footer background, very dark slate */
+  --mid-slate:        #475569;   /* Secondary text */
+  --white:            #ffffff;   /* Pure white */
+  --white-hover:      #93c5fd;   /* White text hover state */
+  --card-shadow:      rgba(59, 130, 246, 0.15); /* Shadow color based on new blue */
+  /* Added for Final CTA */
+  --cta-bg:           #1e3a8a;   /* Deep Navy for contrast */
+  --cta-btn-bg:       #059669;   /* Standout Green for CTA button */
+  --cta-btn-hover:    #047857;   /* Darker green for hover */
+  --cta-btn-shadow:   rgba(5, 150, 105, 0.4); /* Green shadow for CTA button */
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -19,15 +22,15 @@
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.7;
-  color: var(--ink);
-  background: var(--cream);
+  color: var(--deep-slate);
+  background: var(--page-bg);
 }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
 /* Header */
 header {
   background: var(--white);
-  box-shadow: 0 4px 25px rgba(45,106,79,0.08);
+  box-shadow: 0 4px 25px var(--card-shadow);
   position: fixed;
   width: 100%;
   top: 0;
@@ -35,30 +38,29 @@ header {
 }
 
 .clicknotary-text {
-    font-family: "Montserrat", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* the real logo uses Montserrat */
-    font-weight: 600;              /* semi-bold, exactly matches the logo */
-    font-size: 36px;               /* adjust to your needs */
-    letter-spacing: -0.5px;        /* slightly tighter spacing like the logo */
-    text-transform: lowercase;    /* forces all lowercase */
+    font-family: "Montserrat", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    letter-spacing: -0.5px;
+    text-transform: lowercase;
     white-space: nowrap;
-    /* Moves it 1 inch to the left */
-    margin-left: -150px;        /* negative margin = move left */
-    position: relative;        /* ensures it doesn’t break layout */
-    left: 0;                   /* optional – keeps it predictable */
+    margin-left: -150px;
+    position: relative;
+    left: 0;
 }
 
 .clicknotary-text .click {
-    color: #0066ff;                /* exact bright blue from the logo */
+    color: var(--soft-blue);
 }
 
 .clicknotary-text .notary {
-    color: #000000;                /* pure black */
+    color: var(--deep-slate);
 }
 
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; }
 .logo-img { height: 48px; }
 .nav-links a {
-  color: var(--ink);
+  color: var(--deep-slate);
   font-weight: 500;
   margin-left: 2rem;
   text-decoration: none;
@@ -67,80 +69,83 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 
 .nav-links a {
   position: relative;
-  color: var(--ink);
+  color: var(--deep-slate);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: var(--hover-blue);
+  color: var(--soft-blue);
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;                    /* thickness of the line */
-  bottom: -4px;                   /* distance below text */
-  left: 50%;                      /* start exactly in the center */
-  transform: translateX(-50%);    /* perfect centering */
-  background-color: var(--hover-blue);
-  transition: width 0.38s cubic-bezier(0.4, 0, 0.2, 1);  /* buttery smooth */
+  height: 2px;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--soft-blue);
+  transition: width 0.38s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links a:hover::after {
-  width: 100%;                    /* expands outward in both directions */
+  width: 100%;
 }
 
+/* Buttons: Shrink on hover, professional blue */
 .cta-button {
-  background: var(--sage);
+  background: var(--soft-blue);
   color: white;
   padding: 0.75rem 1.8rem;
   border-radius: 0.5rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: all 0.3s ease-out, transform 0.2s ease-out; /* Ensure transform transition is clean */
 }
 .cta-button:hover {
-  background: var(--hover-blue-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,85,255,0.25);
+  background: var(--button-hover);
+  transform: scale(0.98); /* Shrinks slightly */
+  box-shadow: 0 4px 15px var(--card-shadow);
 }
 
 /* Hero */
 .hero {
   padding: 10rem 0 7rem;
   text-align: center;
-  background: linear-gradient(to bottom, var(--sand), var(--cream));
+  background: linear-gradient(to bottom, var(--section-bg), var(--page-bg));
 }
-.hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; color: var(--ink); margin-bottom: 1rem; }
-.hero p { font-size: 1.3rem; color: var(--stone); max-width: 720px; margin: 0 auto 2.5rem; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; color: var(--deep-slate); margin-bottom: 1rem; }
+.hero p { font-size: 1.3rem; color: var(--mid-slate); max-width: 720px; margin: 0 auto 2.5rem; }
 .hero-logo { height: 110px; margin-bottom: 1.5rem; }
 
-/* Buttons – calm sage normally, original blue energy on hover */
+/* Buttons primary/secondary (shrink on hover) */
 .btn-primary {
-  background: var(--sage);
+  background: var(--soft-blue);
   color: white;
   padding: 1.1rem 2.4rem;
   border-radius: 0.5rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: all 0.3s ease-out, transform 0.2s ease-out;
 }
 .btn-primary:hover {
-  background: var(--hover-blue-dark);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,85,255,0.25);
+  background: var(--button-hover);
+  transform: scale(0.98); /* Shrinks slightly */
+  box-shadow: 0 6px 20px var(--card-shadow);
 }
 .btn-secondary {
   background: transparent;
-  color: var(--sage);
-  border: 2px solid var(--sage);
+  color: var(--soft-blue);
+  border: 2px solid var(--soft-blue);
+  transition: all 0.3s ease-out, transform 0.2s ease-out;
 }
 .btn-secondary:hover {
-  background: var(--hover-blue);
+  background: var(--button-hover);
   color: white;
-  border-color: var(--hover-blue);
+  border-color: var(--button-hover);
+  transform: scale(0.98); /* Shrinks slightly */
 }
 .large { font-size: 1.3rem; padding: 1.4rem 3.5rem !important; }
 
@@ -150,12 +155,12 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   font-size: 2.8rem;
   text-align: center;
   margin-bottom: 3.5rem;
-  color: var(--ink);
+  color: var(--deep-slate);
 }
 .features, .how-it-works, .pricing, .compliance { padding: 7rem 0; }
 .features { background: var(--white); }
-.how-it-works { background: var(--sand); }
-.pricing { background: var(--cream); }
+.how-it-works { background: var(--section-bg); }
+.pricing { background: var(--page-bg); }
 .compliance { background: var(--white); }
 
 .grid, .steps, .badges { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
@@ -163,35 +168,36 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .subtitle {
     text-align: center;
     width: 100%;
-    max-width: 900px;           /* gives it a little more breathing room */
-    margin: 2rem auto;          /* more vertical space */
+    max-width: 900px;
+    margin: 2rem auto;
     padding: 0 1rem;
-    font-size: 1.35rem;         /* clearly larger – feels premium */
+    font-size: 1.35rem;
     line-height: 1.65;
-    font-weight: 500;           /* slightly bolder without screaming */
-    color: #333;                /* darker for better contrast */
+    font-weight: 500;
+    color: var(--mid-slate);
 }
 
 .card, .step, .price-card {
   background: var(--white);
   padding: 2.5rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(45,106,79,0.08);
+  box-shadow: 0 10px 30px var(--card-shadow);
   text-align: center;
   border: 3px solid transparent;
-  transition: all 0.3s;
+  /* Updated transition for growing effect */
+  transition: all 0.3s ease-out;
 }
-/* Exact original hover behavior restored */
+/* Cards grow slightly on hover */
 .card:hover, .step:hover, .price-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,85,255,0.15);
-  border: 3px solid var(--hover-blue);
+  transform: scale(1.03); /* Grows slightly on hover */
+  box-shadow: 0 20px 40px var(--card-shadow);
+  border: 3px solid var(--soft-blue);
 }
-.price-amount { font-size: 2.8rem; font-weight: 700; color: var(--sage); }
+.price-amount { font-size: 2.8rem; font-weight: 700; color: var(--soft-blue); }
 
-/* === HOW IT WORKS – Numbered Circles (visible + perfect hover) === */
+/* === HOW IT WORKS – Numbered Circles === */
 .steps {
-  counter-reset: step;                  /* starts the numbering */
+  counter-reset: step;
   position: relative;
 }
 
@@ -207,7 +213,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--sage);             /* calm sage when resting */
+  background: var(--soft-blue);
   color: white;
   width: 56px;
   height: 56px;
@@ -221,16 +227,16 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   transition: all 0.3s ease;
 }
 
-/* On hover → flashes your original electric blue (exactly like cards) */
+/* On hover → use the button hover color */
 .step:hover::before {
-  background: var(--hover-blue);       /* #0055ff */
-  box-shadow: 0 8px 20px rgba(0,85,255,0.3);
+  background: var(--button-hover);
+  box-shadow: none;
 }
 
-/* Final CTA – calm sage, electric on hover */
+/* Final CTA: Darker background, standout green button */
 
 .final-cta {
-  background: linear-gradient(135deg, var(--sage), #1f4e3a); /* or use your --blue vars */
+  background: var(--cta-bg); /* Deep Navy background */
   color: white;
   text-align: center;
   padding: 8rem 0;
@@ -239,28 +245,43 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .final-cta h2 {
   font-family: 'Playfair Display', serif;
   font-size: 3.2rem;
-  margin: 0 0 1rem 0;           /* prevents overlap with the <p> */
+  margin: 0 0 1rem 0;
 }
 
 .final-cta p {
   font-size: 1.25rem;
-  margin-bottom: 2.5rem;        /* gives breathing room before the button */
+  margin-bottom: 2.5rem;
   opacity: 0.95;
 }
 
+/* Specific styling for the CTA button inside the Final CTA section */
 .final-cta .btn-primary.large {
+  background: var(--cta-btn-bg); /* Standout Green */
   padding: 1rem 2.5rem;
   font-size: 1.3rem;
+  /* Reset general btn-primary styles to apply specific ones below */
+  transform: none !important;
+  box-shadow: none !important;
 }
+
+.final-cta .btn-primary.large:hover {
+    background: var(--cta-btn-hover); /* Darker Green hover */
+    transform: scale(0.98) !important; /* Keep button shrink effect */
+    box-shadow: 0 6px 20px var(--cta-btn-shadow) !important; /* Green shadow */
+}
+
 
 /* Footer */
 footer {
-  background: var(--ink);
+  background: var(--dark-bg);
   color: #cbd5e1;
   padding: 4rem 0 2rem;
   text-align: center;
 }
-.footer-links a:hover { color: var(--sage-light); }
+
+.footer-links a {color: var(--white);}
+
+.footer-links a:hover { color: var(--white-hover); }
 
 @media (max-width: 768px) {
   .hero h1 { font-size: 2.9rem; }
