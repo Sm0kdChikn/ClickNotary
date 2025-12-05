@@ -364,5 +364,9 @@ footer {
     display: block;
     width: 100%;
   }
+
+    .final-cta .btn-primary.large {
+    /* Reduce the padding to make the button less wide/tall */
+    padding: 0.75rem 1.5rem !important; 
 }
 /* Added the necessary closing brace for the media query */
