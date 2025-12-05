@@ -293,23 +293,46 @@ footer {
     margin-left: 0;
   }
 
-  /* Adjust navigation behavior to stack elements vertically */
-  nav {
-    /* Allows elements to wrap onto a new line if they run out of horizontal space */
-    flex-wrap: wrap; 
-    /* Adds vertical space between the wrapped rows */
-    gap: 1rem; 
+   /* Hide hamburger icon by default (desktop view) */
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 2rem; /* Size of the hamburger icon */
+    background: none;
+    border: none;
+    color: var(--deep-slate);
+    z-index: 1001; /* Ensure it's above the menu when open */
+    padding: 0;
   }
 
+  nav {
+    flex-wrap: nowrap; /* Prevent normal wrapping */
+  }
+  
   .nav-links {
+    /* Position the menu off-screen initially */
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 300px;
+    background: var(--white);
+    box-shadow: -5px 0 15px var(--card-shadow);
     flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
+    padding-top: 5rem; /* Space below the fixed header area */
+    transform: translateX(100%); /* Hide it off-screen */
+    transition: transform 0.4s ease-in-out;
+    align-items: flex-start;
+  }
+
+  /* Class added by JavaScript when menu is active */
+  .nav-links.is-open {
+    transform: translateX(0);
   }
 
   .nav-links a {
-    margin-left: 0;
-    padding: 0.2rem 0;
+    margin: 1rem 1.5rem; /* Stack links vertically with internal padding */
+    width: 100%;
   }
   
   /* Make the header button take full width on mobile to look better */
@@ -319,6 +342,18 @@ footer {
     order: 1; /* Puts the button on its own line after the nav links */
   }
 
+  /* Stack the buttons vertically and make them full width on mobile */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem; /* Adjust vertical gap */
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    display: block; /* Makes anchor tags take full width */
+    width: 100%;    /* Full width on mobile */
+  }
+  
   /* Disable hover effects for mobile to prevent odd scaling on touch */
   .btn:hover, .btn-primary:hover, .btn-secondary:hover, .card:hover, .step:hover, .price-card:hover, .final-cta .btn-primary.large:hover {
     transform: none !important;
