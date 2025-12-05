@@ -21,45 +21,55 @@
 <body>
 
   <!-- Header -->
-  <header>
+<header>
     <div class="container">
-      <nav>
-        <a href="#home" class="logo">
-          <img src="assets/img/cn_mouse_logo.png" 
-                alt="ClickNotary Logo" 
-                class="logo-img" 
-                style="width: 75px; height: auto;" >
-        </a>
+        <nav>
+            <!-- Logo Section -->
+            <a href="#home" class="logo">
+                <img src="assets/img/cn_mouse_logo.png" 
+                      alt="ClickNotary Logo" 
+                      class="logo-img" 
+                      style="width: 75px; height: auto;" >
+            </a>
+            <span class="clicknotary-text">
+                <span class="click">click</span><span class="notary">notary</span>
+            </span>
 
-        <span class="clicknotary-text">
-          <span class="click">click</span><span class="notary">notary</span>
-        </span>
+            <!-- *** ADDED: The Hamburger Menu Button (☰) *** -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                ☰
+            </button>
 
-        <div class="nav-links">
-          <a href="#how">How It Works</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#security">Security</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <a href="#book" class="cta-button">Schedule Notarization</a>
-      </nav>
+            <!-- Navigation Links Container -->
+            <div class="nav-links" id="nav-links">
+                <a href="#how">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#security">Security</a>
+                <a href="#contact">Contact</a>
+                <!-- MOVED: The CTA button now lives INSIDE nav-links for mobile stacking -->
+                <a href="#book" class="cta-button" style="color: white;">Schedule Notarization</a>
+            </div>
+        </nav>
     </div>
-  </header>
+</header>
 
   <main id="home">
   <!-- or if you use <section class="hero">, just add id="home" there -->
   <section class="hero" id="home">
     <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="container">
       <img src="assets/img/cn_mouse_logo.png" style="width: 200px; height: auto;" alt="ClickNotary" class="hero-logo">
       <h1>Same-Day Online Notary <br> Evenings & Saturdays</h1>
       <p>Book now, notarize in as little as 30 minutes. Fully secure Utah RON (Remote Online).</p>
-      <div class="buttons">
+      
+      <!-- *** CHANGED: 'buttons' class to 'hero-buttons' *** -->
+      <div class="hero-buttons"> 
         <a href="#book" class="btn-primary">Schedule Notarization Now</a>
         <a href="#how" class="btn-primary btn-secondary">How It Works</a>
       </div>
     </div>
+</section>
     
   </section>
   </section>
@@ -196,6 +206,34 @@
   </footer>
 
   <!-- Custom JS (optional animations later) -->
+   <script>
+    // This script handles the mobile menu toggle functionality
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        // This toggles the 'is-open' class which triggers the CSS transition
+        navLinks.classList.toggle('is-open'); 
+        
+        // Change the hamburger icon (☰/✕) and prevent background scroll
+        if (navLinks.classList.contains('is-open')) {
+            menuToggle.textContent = '✕';
+            document.body.style.overflow = 'hidden'; 
+        } else {
+            menuToggle.textContent = '☰';
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Optional: Close menu when a link is clicked (useful for single-page sites)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('is-open');
+            menuToggle.textContent = '☰';
+            document.body.style.overflow = '';
+        });
+    });
+  </script>
   <script src="assets/js/script.js"></script>
 </body>
 </html>

@@ -111,6 +111,11 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   box-shadow: 0 4px 15px var(--card-shadow);
 }
 
+.menu-toggle {
+    display: none; 
+}
+
+
 /* Hero */
 .hero {
   padding: 10rem 0 7rem;
@@ -283,6 +288,7 @@ footer {
 .footer-links a:hover { color: var(--white-hover); }
 
 
+
 /* --- Mobile Responsiveness Adjustments (max-width: 768px) --- */
 @media (max-width: 768px) {
   /* Adjustments to remove problematic desktop assumptions */
@@ -326,22 +332,23 @@ footer {
     align-items: flex-start;
   }
 
-  /*
-   * You also need the additional styles I provided previously for this media query
-   * to fix the overlap and make the menu functional:
+/*
+   * FIX: This important rule ensures each link takes its own line 
+   * and removes the desktop-specific horizontal margin.
    */
+  .nav-links a {
+    display: block; /* Make links fill the available width */
+    margin: 1rem 1.5rem 1rem 1.5rem; /* Set vertical margin and consistent side padding */
+    width: auto; /* Revert to auto width (full width because of display: block;) */
+  }
+  
 
   /* Class added by JavaScript when menu is active */
   .nav-links.is-open {
     transform: translateX(0);
   }
 
-  .nav-links a {
-    margin: 1rem 1.5rem; /* Stack links vertically with internal padding */
-    width: 100%;
-  }
-
-  /* 2. HERO BUTTONS OVERLAP FIX */
+  /* 2. HERO BUTTONS OVERLAP FIX (requires HTML change to class="hero-buttons") */
   .hero-buttons {
     flex-direction: column;
     gap: 1rem;
