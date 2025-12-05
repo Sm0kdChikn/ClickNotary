@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="ClickNotary – Fast, secure Remote Online Notarization (RON). Notarize documents online in minutes with advanced verification and e-signing tools."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0""")/>>
+  <meta name="description" content="ClickNotary – Fast, secure Remote Online Notarization (RON). Notarize documents online in minutes with advanced verification and e-signing tools.""")/>>
   <title>ClickNotary – Remote Online Notary | Fast & Secure RON</title>
 
   <!-- Favicon -->
   <link rel="icon" href="assets/img/cn_mouse.jpeg" type="image/jpeg" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="fonts.googleapis.com" rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="cdnjs.cloudflare.com""")/>>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -21,61 +21,52 @@
 <body>
 
   <!-- Header -->
-<header>
+  <header>
     <div class="container">
-        <nav>
-            <!-- Logo Section -->
-            <a href="#home" class="logo">
-                <img src="assets/img/cn_mouse_logo.png" 
-                      alt="ClickNotary Logo" 
-                      class="logo-img" 
-                      style="width: 75px; height: auto;" >
-            </a>
-            <span class="clicknotary-text">
-                <span class="click">click</span><span class="notary">notary</span>
-            </span>
+      <nav>
+        <a href="#home" class="logo">
+          <img src="assets/img/cn_mouse_logo.png" 
+                alt="ClickNotary Logo" 
+                class="logo-img" 
+                style="width: 75px; height: auto;" >
+        </a>
 
-            <!-- *** ADDED: The Hamburger Menu Button (☰) *** -->
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
-                ☰
-            </button>
+        <span class="clicknotary-text">
+          <span class="click">click</span><span class="notary">notary</span>
+        </span>
+        
+        <!-- The Hamburger Menu Button (☰) -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+            ☰
+        </button>
 
-            <!-- Navigation Links Container -->
-            <div class="nav-links" id="nav-links">
-                <a href="#how">How It Works</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#security">Security</a>
-                <a href="#contact">Contact</a>
-                <!-- MOVED: The CTA button now lives INSIDE nav-links for mobile stacking -->
-                <a href="#book" class="cta-button" style="color: white;">Schedule Notarization</a>
-            </div>
-        </nav>
+        <div class="nav-links" id="nav-links">
+          <a href="#how">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#security">Security</a>
+          <a href="#contact">Contact</a>
+          <!-- The CTA button MOVED inside nav-links for mobile stacking -->
+          <a href="#book" class="cta-button" style="color: white;">Schedule Notarization</a>
+        </div>
+      </nav>
     </div>
-</header>
+  </header>
 
   <main id="home">
-  <!-- or if you use <section class="hero">, just add id="home" there -->
-  <section class="hero" id="home">
-    <!-- Hero -->
   <section class="hero" id="home">
     <div class="container">
       <img src="assets/img/cn_mouse_logo.png" style="width: 200px; height: auto;" alt="ClickNotary" class="hero-logo">
       <h1>Same-Day Online Notary <br> Evenings & Saturdays</h1>
       <p>Book now, notarize in as little as 30 minutes. Fully secure Utah RON (Remote Online).</p>
       
-      <!-- *** CHANGED: 'buttons' class to 'hero-buttons' *** -->
-      <div class="hero-buttons"> 
+      <!-- *** EDITED: Class name changed from 'buttons' to 'hero-buttons' *** -->
+      <div class="hero-buttons">
         <a href="#book" class="btn-primary">Schedule Notarization Now</a>
         <a href="#how" class="btn-primary btn-secondary">How It Works</a>
       </div>
     </div>
-</section>
-    
-  </section>
   </section>
 </main>
-
-  
 
   <!-- Features -->
   <section class="features">
@@ -166,7 +157,7 @@
     <div class="container">
       <h2>Ready to Get Started?</h2>
       <p>Schedule your secure online notarization in under a minute.</p>
-      <a href="https://calendly.com/clicknotarypro/60-minute-meeting" class="btn-primary large">
+      <a href="calendly.com" class="btn-primary large">
         Schedule Notarization Now
       </a>
     </div>
@@ -186,8 +177,6 @@
         <strong>Email:</strong> 
         <a href="mailto:notary@clicknotarypro.com" style="color:#0066cc; text-decoration:underline;">notary@clicknotarypro.com</a>
       </p>
-      
-
     </div>
   </div>
 </section>
@@ -205,37 +194,33 @@
     </div>
   </footer>
 
-  <!-- Custom JS (optional animations later) -->
-   <script>
-    // This script handles the mobile menu toggle functionality
+  <!-- *** EDITED: Added JS snippet to control the mobile menu functionality *** -->
+  <script>
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
 
-    menuToggle.addEventListener('click', () => {
-        // This toggles the 'is-open' class which triggers the CSS transition
-        navLinks.classList.toggle('is-open'); 
-        
-        // Change the hamburger icon (☰/✕) and prevent background scroll
-        if (navLinks.classList.contains('is-open')) {
-            menuToggle.textContent = '✕';
-            document.body.style.overflow = 'hidden'; 
-        } else {
-            menuToggle.textContent = '☰';
-            document.body.style.overflow = '';
-        }
-    });
+    if(menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('is-open'); 
+          if (navLinks.classList.contains('is-open')) {
+              menuToggle.textContent = '✕';
+              document.body.style.overflow = 'hidden'; 
+          } else {
+              menuToggle.textContent = '☰';
+              document.body.style.overflow = '';
+          }
+      });
 
-    // Optional: Close menu when a link is clicked (useful for single-page sites)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('is-open');
-            menuToggle.textContent = '☰';
-            document.body.style.overflow = '';
-        });
-    });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', () => {
+              navLinks.classList.remove('is-open');
+              menuToggle.textContent = '☰';
+              document.body.style.overflow = '';
+          });
+      });
+    }
   </script>
+  <!-- Custom JS (optional animations later) -->
   <script src="assets/js/script.js"></script>
 </body>
 </html>
-
-

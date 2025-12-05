@@ -112,6 +112,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 }
 
 .menu-toggle {
+    /* Hidden on desktop view by default */
     display: none; 
 }
 
@@ -125,6 +126,13 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; color: var(--deep-slate); margin-bottom: 1rem; }
 .hero p { font-size: 1.3rem; color: var(--mid-slate); max-width: 720px; margin: 0 auto 2.5rem; }
 .hero-logo { height: 110px; margin-bottom: 1.5rem; }
+
+/* Added this container class for hero buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Adds space between buttons on desktop */
+}
 
 /* Buttons primary/secondary (shrink on hover) */
 .btn-primary {
@@ -264,7 +272,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   background: var(--cta-btn-bg); /* Standout Green */
   padding: 1rem 2.5rem;
   font-size: 1.3rem;
-  transform: none;
+  /* *** EDITED: Removed 'transform: none;' to allow shrinking *** */
   box-shadow: none;
 }
 
@@ -300,7 +308,7 @@ footer {
     margin-left: 0;
   }
 
-   /* Hide hamburger icon by default (desktop view) */
+   /* Show hamburger icon ONLY on mobile */
   .menu-toggle {
     display: block;
     cursor: pointer;
@@ -315,9 +323,9 @@ footer {
   nav {
     flex-wrap: nowrap; /* Prevent normal wrapping */
   }
-  
+
+  /* Nav menu positioning and styling for mobile */
   .nav-links {
-    /* Position the menu off-screen initially */
     position: fixed;
     right: 0;
     top: 0;
@@ -325,30 +333,27 @@ footer {
     width: 300px;
     background: var(--white);
     box-shadow: -5px 0 15px var(--card-shadow);
-    flex-direction: column;
-    padding-top: 5rem; /* Space below the fixed header area */
-    transform: translateX(100%); /* Hide it off-screen */
+    flex-direction: column; /* Stack vertically */
+    padding-top: 5rem; 
+    transform: translateX(100%); /* Hide it off-screen initially */
     transition: transform 0.4s ease-in-out;
     align-items: flex-start;
   }
-
-/*
-   * FIX: This important rule ensures each link takes its own line 
-   * and removes the desktop-specific horizontal margin.
-   */
-  .nav-links a {
-    display: block; /* Make links fill the available width */
-    margin: 1rem 1.5rem 1rem 1.5rem; /* Set vertical margin and consistent side padding */
-    width: auto; /* Revert to auto width (full width because of display: block;) */
-  }
-  
 
   /* Class added by JavaScript when menu is active */
   .nav-links.is-open {
     transform: translateX(0);
   }
+  
+  /* Ensure links stack vertically with consistent margin */
+  .nav-links a {
+    display: block; 
+    margin: 1rem 1.5rem; 
+    width: auto; 
+  }
 
-  /* 2. HERO BUTTONS OVERLAP FIX (requires HTML change to class="hero-buttons") */
+
+  /* Fix the hero buttons overlap on mobile by stacking them */
   .hero-buttons {
     flex-direction: column;
     gap: 1rem;
@@ -359,6 +364,5 @@ footer {
     display: block;
     width: 100%;
   }
-
-} 
-/* <-- ADD THIS CLOSING CURLY BRACE */
+}
+/* Added the necessary closing brace for the media query */
