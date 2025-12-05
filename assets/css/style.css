@@ -282,6 +282,7 @@ footer {
 
 .footer-links a:hover { color: var(--white-hover); }
 
+
 /* --- Mobile Responsiveness Adjustments (max-width: 768px) --- */
 @media (max-width: 768px) {
   /* Adjustments to remove problematic desktop assumptions */
@@ -325,6 +326,11 @@ footer {
     align-items: flex-start;
   }
 
+  /*
+   * You also need the additional styles I provided previously for this media query
+   * to fix the overlap and make the menu functional:
+   */
+
   /* Class added by JavaScript when menu is active */
   .nav-links.is-open {
     transform: translateX(0);
@@ -334,29 +340,18 @@ footer {
     margin: 1rem 1.5rem; /* Stack links vertically with internal padding */
     width: 100%;
   }
-  
-  /* Make the header button take full width on mobile to look better */
-  .cta-button {
-    width: 100%;
-    text-align: center;
-    order: 1; /* Puts the button on its own line after the nav links */
-  }
 
-  /* Stack the buttons vertically and make them full width on mobile */
+  /* 2. HERO BUTTONS OVERLAP FIX */
   .hero-buttons {
     flex-direction: column;
-    gap: 1rem; /* Adjust vertical gap */
+    gap: 1rem;
   }
 
   .hero-buttons .btn-primary,
   .hero-buttons .btn-secondary {
-    display: block; /* Makes anchor tags take full width */
-    width: 100%;    /* Full width on mobile */
+    display: block;
+    width: 100%;
   }
-  
-  /* Disable hover effects for mobile to prevent odd scaling on touch */
-  .btn:hover, .btn-primary:hover, .btn-secondary:hover, .card:hover, .step:hover, .price-card:hover, .final-cta .btn-primary.large:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-}
+
+} 
+/* <-- ADD THIS CLOSING CURLY BRACE */
