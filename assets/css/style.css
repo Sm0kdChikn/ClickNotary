@@ -290,22 +290,21 @@ footer {
 
   /* Fix the logo positioning on mobile */
   .clicknotary-text {
-      margin-left: 0;
-      font-size: 28px; /* Slightly smaller font for mobile header */
+    margin-left: 0;
   }
 
   /* Adjust navigation behavior to stack elements vertically */
   nav {
-    flex-direction: column; /* Stacks logo/nav links vertically */
-    align-items: flex-start;
-    gap: 1rem;
+    /* Allows elements to wrap onto a new line if they run out of horizontal space */
+    flex-wrap: wrap; 
+    /* Adds vertical space between the wrapped rows */
+    gap: 1rem; 
   }
 
   .nav-links {
-    display: flex;
-    flex-direction: column; /* Stacks links vertically */
-    gap: 0.5rem;
+    flex-direction: column;
     width: 100%;
+    gap: 0.5rem;
   }
 
   .nav-links a {
@@ -315,9 +314,9 @@ footer {
   
   /* Make the header button take full width on mobile to look better */
   .cta-button {
-    margin-top: 1rem;
     width: 100%;
     text-align: center;
+    order: 1; /* Puts the button on its own line after the nav links */
   }
 
   /* Disable hover effects for mobile to prevent odd scaling on touch */
