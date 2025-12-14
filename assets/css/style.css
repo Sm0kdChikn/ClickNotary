@@ -45,9 +45,7 @@ header {
     text-transform: lowercase;
     white-space: nowrap;
     /* The desktop style uses a negative margin, this is fixed for mobile below */
-    margin-left: -150px;
-    position: relative;
-    left: 0;
+    margin-left: 10px
 }
 
 .clicknotary-text .click {
@@ -58,8 +56,23 @@ header {
     color: var(--deep-slate);
 }
 
-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; }
+nav { 
+  display: flex; 
+  justify-content: flex-start; /* Align logo/text to start */
+  align-items: center; 
+  padding: 1.2rem 0; 
+  gap: 20px; /* Add some default space between logo block and nav links */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pushes the nav links to the far right */
+    white-space: nowrap;
+}
+
 .logo-img { height: 48px; }
+
 .nav-links a {
   color: var(--deep-slate);
   font-weight: 500;
@@ -104,6 +117,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease-out, transform 0.2s ease-out;
+  white-space: nowrap; 
 }
 .cta-button:hover {
   background: var(--button-hover);
@@ -253,6 +267,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   color: white;
   text-align: center;
   padding: 8rem 0;
+  
 }
 
 .final-cta h2 {
@@ -274,6 +289,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
   font-size: 1.3rem;
   /* *** EDITED: Removed 'transform: none;' to allow shrinking *** */
   box-shadow: none;
+  white-space: nowrap;
 }
 
 .final-cta .btn-primary.large:hover {
@@ -298,14 +314,18 @@ footer {
 
 
 /* --- Mobile Responsiveness Adjustments (max-width: 768px) --- */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   /* Adjustments to remove problematic desktop assumptions */
   .hero h1 { font-size: 2.5rem; }
   .hero-logo { height: 75px; }
 
   /* Fix the logo positioning on mobile */
   .clicknotary-text {
-    margin-left: 0;
+    /* Ensures the text has standard spacing and doesn't overlap the logo */
+    margin-left: 10px; /* Adjust spacing as needed */
+    position: static;  /* Remove absolute positioning context */
+    left: auto;        /* Reset left property */
+    font-size: 24px;   /* Optionally reduce font size for smaller screens */
   }
 
    /* Show hamburger icon ONLY on mobile */
@@ -318,6 +338,7 @@ footer {
     color: var(--deep-slate);
     z-index: 1001; /* Ensure it's above the menu when open */
     padding: 0;
+    margin-left: auto;
   }
 
   nav {
