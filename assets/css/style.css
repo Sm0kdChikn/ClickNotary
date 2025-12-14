@@ -325,7 +325,7 @@ footer {
     margin-left: 10px; /* Adjust spacing as needed */
     position: static;  /* Remove absolute positioning context */
     left: auto;        /* Reset left property */
-    font-size: 24px;   /* Optionally reduce font size for smaller screens */
+      
   }
 
    /* Show hamburger icon ONLY on mobile */
